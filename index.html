@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Docker & Jenkins Complete Training</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #202b3c;
+    line-height: 1.7;
+}
+
+header {
+    background: #101d32;
+    color: white;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h2 { color: #36c78b; }
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 8px;
+    font-size: 14px;
+}
+
+.hero {
+    background: linear-gradient(120deg,#101d32,#126c78);
+    color: white;
+    text-align: center;
+    padding: 75px 20px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 35px 20px;
+}
+
+section {
+    background: white;
+    padding: 25px;
+    margin: 25px 0;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px #0000000c;
+}
+
+h2 {
+    color: #087b67;
+    margin-bottom: 15px;
+}
+
+h3 { margin: 15px 0 8px; }
+
+p { margin: 10px 0; }
+
+ul { padding-left: 25px; }
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #f0f8f6;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.card img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
+.card h3 { color: #087b67; }
+
+.logo {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    margin: 10px;
+}
+
+pre {
+    background: #101820;
+    color: #7dffb2;
+    padding: 18px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 12px 0;
+    font-size: 14px;
+}
+
+.highlight {
+    background: #e6f8ef;
+    padding: 15px;
+    border-left: 5px solid #13a66b;
+    margin: 15px 0;
+}
+
+footer {
+    background: #101d32;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+button {
+    background: #10a875;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button:hover { background: #087b67; }
+
+@media(max-width:600px) {
+    .hero h1 { font-size: 29px; }
+    header { justify-content: center; gap: 12px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>DevOps Academy</h2>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#docker">Docker</a>
+        <a href="#jenkins">Jenkins</a>
+        <a href="#commands">Commands</a>
+        <a href="#pipeline">Pipeline</a>
+    </nav>
+</header>
+
+<div class="hero" id="home">
+    <h1>Docker & Jenkins Complete Training</h1>
+    <p>Learn Containerization, Automation, CI/CD and DevOps</p>
+    <p>Beginner to Advanced Practical Training</p>
+    <button onclick="document.getElementById('docker').scrollIntoView()">
+        Start Learning
+    </button>
+</div>
+
+<div class="container">
+
+<section>
+<h2>1. What is DevOps?</h2>
+<p>
+DevOps is a combination of Development and Operations.
+It is a methodology that helps teams develop, test and
+deploy software faster through automation and collaboration.
+</p>
+
+<div class="highlight">
+<strong>DevOps Goal:</strong>
+Improve software delivery speed, quality, reliability and collaboration.
+</div>
+</section>
+
+<section id="docker">
+<h2>2. What is Docker?</h2>
+
+<div class="cards">
+<div class="card">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker Logo">
+<h3>Docker</h3>
+<p>Containerization Platform</p>
+</div>
+</div>
+
+<p>
+Docker is an open-source platform used to build, package
+and run applications inside containers.
+</p>
+
+<h3>Why use Docker?</h3>
+<ul>
+<li>Application portability</li>
+<li>Lightweight containers</li>
+<li>Faster deployment</li>
+<li>Consistent environments</li>
+<li>Easy application scaling</li>
+<li>Efficient resource utilization</li>
+</ul>
+
+<h3>Docker Architecture</h3>
+<img class="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+
+<p>Important Docker components:</p>
+<ul>
+<li><b>Docker Client:</b> Sends commands to Docker Engine.</li>
+<li><b>Docker Daemon:</b> Manages Docker objects.</li>
+<li><b>Docker Image:</b> Blueprint for creating containers.</li>
+<li><b>Docker Container:</b> Running instance of an image.</li>
+<li><b>Docker Registry:</b> Stores and distributes images.</li>
+</ul>
+</section>
+
+<section>
+<h2>3. Important Docker Commands</h2>
+
+<pre>
+docker --version
+docker info
+docker images
+docker ps
+docker ps -a
+docker pull nginx
+docker run hello-world
+docker run -d -p 8080:80 nginx
+docker stop CONTAINER_ID
+docker start CONTAINER_ID
+docker restart CONTAINER_ID
+docker rm CONTAINER_ID
+docker rmi IMAGE_NAME
+docker logs CONTAINER_ID
+docker exec -it CONTAINER_ID bash
+docker build -t myapp .
+</pre>
+</section>
+
+<section>
+<h2>4. What is a Dockerfile?</h2>
+<p>
+A Dockerfile is a text file containing instructions
+to build a Docker image.
+</p>
+
+<h3>Example Dockerfile</h3>
+<pre>
+FROM nginx:latest
+
+WORKDIR /usr/share/nginx/html
+
+COPY index.html .
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
+</pre>
+
+<h3>Build and Run</h3>
+<pre>
+docker build -t mywebsite .
+docker run -d -p 9090:80 mywebsite
+</pre>
+</section>
+
+<section id="jenkins">
+<h2>5. What is Jenkins?</h2>
+
+<div class="cards">
+<div class="card">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins Logo">
+<h3>Jenkins</h3>
+<p>Automation Server</p>
+</div>
+</div>
+
+<p>
+Jenkins is an open-source automation server used for
+Continuous Integration and Continuous Delivery (CI/CD).
+</p>
+
+<h3>Advantages of Jenkins</h3>
+<ul>
+<li>Automates software builds.</li>
+<li>Automates testing.</li>
+<li>Automates deployments.</li>
+<li>Supports many plugins.</li>
+<li>Integrates with GitHub and Docker.</li>
+<li>Supports CI/CD pipelines.</li>
+</ul>
+
+<h3>Jenkins Important Components</h3>
+<ul>
+<li><b>Controller:</b> Manages jobs and schedules builds.</li>
+<li><b>Agent:</b> Executes build tasks.</li>
+<li><b>Job:</b> Defines an automation task.</li>
+<li><b>Pipeline:</b> Defines the CI/CD workflow.</li>
+<li><b>Plugins:</b> Extend Jenkins functionality.</li>
+</ul>
+</section>
+
+<section>
+<h2>6. Jenkins Installation Commands</h2>
+
+<p>Example: Amazon Linux 2023 EC2 instance.</p>
+
+<pre>
+sudo dnf update -y
+
+sudo dnf install java-21-amazon-corretto -y
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+https://pkg.jenkins.io/rpm-stable/jenkins.repo
+
+sudo rpm --import https://pkg.jenkins.io/rpm-stable/jenkins.io-2023.key
+
+sudo dnf install jenkins -y
+
+sudo systemctl enable jenkins
+
+sudo systemctl start jenkins
+
+sudo systemctl status jenkins
+</pre>
+
+<p>Open Jenkins:</p>
+<pre>
+http://YOUR-EC2-PUBLIC-IP:8080
+</pre>
+
+<p>Get initial admin password:</p>
+<pre>
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+</pre>
+</section>
+
+<section id="commands">
+<h2>7. Connect Docker with Jenkins</h2>
+
+<p>
+Install Docker on the same EC2 instance where Jenkins runs.
+</p>
+
+<pre>
+sudo dnf install docker -y
+
+sudo systemctl enable --now docker
+
+sudo usermod -aG docker jenkins
+
+sudo systemctl restart docker
+
+sudo systemctl restart jenkins
+</pre>
+
+<h3>Verify Connection</h3>
+<pre>
+id jenkins
+
+sudo -u jenkins docker --version
+
+sudo -u jenkins docker ps
+
+sudo docker run hello-world
+</pre>
+
+<div class="highlight">
+<strong>Important:</strong>
+Jenkins must have permission to access the Docker daemon.
+Docker group access grants powerful, effectively root-level privileges.
+Use it only on a trusted Jenkins host.
+</div>
+</section>
+
+<section>
+<h2>8. Docker and Jenkins Integration</h2>
+
+<p>How Docker and Jenkins work together:</p>
+
+<div class="cards">
+<div class="card">
+<h3>1. Developer</h3>
+<p>Writes and pushes code to GitHub.</p>
+</div>
+
+<div class="card">
+<h3>2. Jenkins</h3>
+<p>Fetches code and starts the pipeline.</p>
+</div>
+
+<div class="card">
+<h3>3. Docker</h3>
+<p>Builds an application image.</p>
+</div>
+
+<div class="card">
+<h3>4. Deployment</h3>
+<p>Runs the application in a container.</p>
+</div>
+</div>
+</section>
+
+<section id="pipeline">
+<h2>9. Jenkins CI/CD Pipeline</h2>
+
+<p>
+A CI/CD pipeline automates the process of building,
+testing and deploying applications.
+</p>
+
+<h3>Example Jenkinsfile</h3>
+
+<pre>
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Git Checkout') {
+            steps {
+                git branch: 'main',
+                url: 'https://github.com/USERNAME/REPOSITORY.git'
+            }
+        }
+
+        stage('Docker Version') {
+            steps {
+                sh 'docker --version'
+            }
+        }
+
+        stage('Build Image') {
+            steps {
+                sh 'docker build -t myapp:latest .'
+            }
+        }
+
+        stage('Run Container') {
+            steps {
+                sh '''
+                docker rm -f myapp || true
+                docker run -d \
+                --name myapp \
+                -p 9090:80 myapp:latest
+                '''
+            }
+        }
+    }
+}
+</pre>
+
+<p>Open your deployed application:</p>
+<pre>
+http://YOUR-EC2-PUBLIC-IP:9090
+</pre>
+</section>
+
+<section>
+<h2>10. Important DevOps Tools</h2>
+
+<div class="cards">
+<div class="card">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+<h3>Git</h3>
+<p>Version Control</p>
+</div>
+
+<div class="card">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+<h3>GitHub</h3>
+<p>Code Hosting</p>
+</div>
+
+<div class="card">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+<h3>Docker</h3>
+<p>Containerization</p>
+</div>
+
+<div class="card">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins">
+<h3>Jenkins</h3>
+<p>CI/CD Automation</p>
+</div>
+
+<div class="card">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes">
+<h3>Kubernetes</h3>
+<p>Container Orchestration</p>
+</div>
+
+<div class="card">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform">
+<h3>Terraform</h3>
+<p>Infrastructure as Code</p>
+</div>
+</div>
+</section>
+
+<section>
+<h2>11. Interview Questions</h2>
+
+<h3>Q1. What is Docker?</h3>
+<p>Docker is a containerization platform used to package and run applications.</p>
+
+<h3>Q2. What is Jenkins?</h3>
+<p>Jenkins is an automation server used for CI/CD.</p>
+
+<h3>Q3. What is a Docker Image?</h3>
+<p>A Docker image is a read-only template used to create containers.</p>
+
+<h3>Q4. What is a Docker Container?</h3>
+<p>A container is an isolated running instance of an image.</p>
+
+<h3>Q5. What is CI/CD?</h3>
+<p>CI/CD automates integration, testing and software delivery.</p>
+
+<h3>Q6. Why integrate Docker with Jenkins?</h3>
+<p>To automate image building, testing and application deployment.</p>
+
+<h3>Q7. What is a Jenkinsfile?</h3>
+<p>A Jenkinsfile defines a pipeline as code.</p>
+
+<h3>Q8. What is Docker Hub?</h3>
+<p>Docker Hub is a registry for storing and sharing Docker images.</p>
+</section>
+
+<section>
+<h2>12. Practical Training Roadmap</h2>
+<ul>
+<li>Day 1: Introduction to DevOps and Docker.</li>
+<li>Day 2: Docker installation and commands.</li>
+<li>Day 3: Images, containers and Dockerfile.</li>
+<li>Day 4: Docker volumes and networks.</li>
+<li>Day 5: Jenkins installation.</li>
+<li>Day 6: Jenkins jobs and plugins.</li>
+<li>Day 7: Jenkins Pipeline.</li>
+<li>Day 8: Docker and Jenkins integration.</li>
+<li>Day 9: GitHub integration.</li>
+<li>Day 10: Complete CI/CD project.</li>
+</ul>
+</section>
+
+<section>
+<h2>13. About the Author</h2>
+<h3>Mohit Gadilohar</h3>
+<p>Cloud Engineer | AWS | DevOps | Docker | Jenkins</p>
+<p>
+Learning cloud computing, Linux, AWS, Docker,
+Jenkins, Git and CI/CD automation.
+</p>
+</section>
+
+</div>
+
+<footer>
+<h3>DevOps Academy</h3>
+<p>Learn | Build | Automate | Deploy</p>
+<p>Created by Mohit Gadilohar</p>
+<p>© 2026 All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
+
